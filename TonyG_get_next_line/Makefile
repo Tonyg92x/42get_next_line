@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: mmondell <mmondell@student.42quebec.com    +#+  +:+       +#+         #
+#    By: aguay <aguayaguay@student.42queb>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2021/08/31 08:51:26 by mmondell          #+#    #+#              #
-#    Updated: 2021/09/02 14:55:40 by mmondell         ###   ########.fr        #
+#    Created: 2021/11/24 09:31:25 by aguay             #+#    #+#              #
+#    Updated: 2021/11/24 09:35:27 by aguay            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,10 +15,7 @@
 #*#######################################################
 
 ## -----  NAME OF THE PROGRAMM ----- ##
-NAME 			= 
-
-## ----- NAME OF THE BONUS PART ----- ##
-B_NAME			= 
+NAME 			= get_next_line
 
 ## ----- CHOOSE COMPILER AND FLAGS ----- ##
 CC				= gcc
@@ -26,32 +23,22 @@ CFLAGS			= -Wall -Wextra -Werror -g
 
 ## ----- PATH TO FOLDERS ----- ##
 SRCS_DIR		= srcs/
-#*B_SRCS_DIR		= 
 
 OBJ_DIR			= obj/
 
 INCLUDE_DIR		= includes/
 
-LIBFT_DIR		= libft/
-
 ## ----- SOURCE FILES ----- ##
-SRCS_FILES		= 
-## ----- BONUS SOURCE FILES ----- ##
-#*B_SRCS_FILES	= 
+SRCS_FILES		= get_next_line.c get_next_line_utils.c
 
 ## ----- .C TO .O CONVERT ----- ##
 OBJ_FILES		= $(SRCS_FILES:.c=.o)
-#*B_OBJ_FILES		= $(B_SRCS_FILES:.c=.o)
 
 ## ----- ADDPREFIX TO FILES ----- ##
 # MAIN PROGRAMM #
 SRCS			= $(addprefix $(SRCS_DIR), $(SRCS_FILES))
 OBJS			= $(addprefix $(OBJ_DIR), $(OBJ_FILES))
 VPATH			= $(SRCS_DIR) #$(B_SRCS_DIR)
-
-# BONUS PART #
-#*B_SRCS			= $(addprefix $(B_SRCS_DIR), $(B_SRCS_FILES))
-#*B_OBJS			= $(addprefix $(OBJ_DIR), $(B_OBJ_FILES))
 
 #--------------------------------------------------------------#
 
@@ -75,23 +62,14 @@ all: obj $(NAME)
 	@echo "$(GREEN)Compilation Completed Successfully$(NORMAL)"
 
 $(OBJ_DIR)%.o:%.c
-	$(CC) $(CFLAGS) -I$(LIBFT_DIR) -I$(INCLUDE_DIR) -o $@ -c $<
+	$(CC) $(CFLAGS) $(INCLUDE_DIR) -o $@ -c $<
 
 $(NAME): $(OBJS)
-	$(LIBFT)
-	$(CC) $(OBJS) -L$(LIBFT_DIR) -lft -o $(NAME)
+	$(CC) $(OBJS) -o $(NAME)
 
 obj:
 	@mkdir -p $(OBJ_DIR)
 
-## ----- ACTIONS FOR THE BONUS PART ----- ##
-#*bonus: $(B_NAME)
-#*	@echo "$(GREEN)Bonus Files Compiled!$(NORMAL)"
-#*
-#*$(B_NAME): $(B_OBJS)
-#*	$(LIBFT)
-#*	$(CC) $(B_OBJS) -L$(LIBFT_DIR) -lft -o $(B_NAME)
-	
 ## ----- CLEAN COMMANDS ----- ##
 clean:
 	$(RM) $(OBJS) $(B_OBJS)
