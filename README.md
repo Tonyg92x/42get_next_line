@@ -27,10 +27,10 @@
     <img src="images/42_Logo.svg.png" alt="Logo" width="80" height="80">
   </a>
 
-<h3 align="center">ft_printf</h3>
+<h3 align="center">get_next_line</h3>
 
   <p align="center">
-    Home made printf function for c/c++ programming. Project of 42 cursus.
+    Home made get_next_line function for c/c++ programming. Project of 42 cursus.
   </p>
 </div>
 
@@ -58,20 +58,20 @@
 
 [![Product Name Screen Shot][product-screenshot]](https://example.com)
 <p align="center">
-  This is a 42 project to learn c programming. The goal is to remake a printf function with basic input. The printf function is simple, if print a string in the console. The difficulty here is that you can send multiple arguments. Every time you add a % in the first argument (string), the character folowing the % indicate wich datatype to enter. Here is the possibilities of data type : %c for char , %s for strings , %i , %d for int , %u for uinsigned int , %x/X for hexadicimal , %p for pointers , %% for printing a %. A good example of usage would be : printf("hi you %s %c", "name", '?'); It is possible to use variable instead of writing the output.
+  add text here.
  <p align  ="center">
-   The project was done fast, so I did not do bonuses and a complexe makefile with multiple folders.
+   add text here
 
  <!-- INSTALLATION -->
 ## Installation
 ```markdown
-git@github.com:Tonyg92x/42printf.git
+git@github.com:Tonyg92x/42get_next_line.git
 ```
  
  <!-- CORRECTIONS -->
 ## Corrections
 <p align="center">
-  For the project, before submetting my project, I used Tripouille tester (https://github.com/Tripouille/printfTester) and paulo-santana tester (https://github.com/paulo-santana/ft_printf_tester) to test multiple input. In the future the project may change and these tester may be outdated. 
+  add text here
 
 <!-- Authors -->
 ## Authors
