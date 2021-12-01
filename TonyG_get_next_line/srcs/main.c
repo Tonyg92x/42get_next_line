@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: aguay <aguayaguay@student.42queb>          +#+  +:+       +#+        */
+/*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 09:26:26 by aguay             #+#    #+#             */
-/*   Updated: 2021/11/24 13:22:02 by aguay            ###   ########.fr       */
+/*   Updated: 2021/12/01 14:49:42 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,27 @@
 
 int	main(void)
 {
-	FILE *fp = fopen("test.txt", "r");
+	int		fd;
+	char	*line;
 
-	fp = open("test.txt", "r");
-	if (fp == NULL)
+	fd = open("test.txt", O_RDONLY);
+	if (fd == -1)
 	{
-		printf("Unable to open the file");
-		return (0);
+		printf("open() error");
+		return (1);
 	}
-	while (get_next_line(fp) != NULL)
-		get_next_line(fp);
-	fclose(fp);
+	line = get_next_line(fd);
+	while (line != NULL)
+	{
+		line = get_next_line(fd);
+		free(line);
+	}
+	free(line);
+	if (close(fd) == -1)
+	{
+		printf("close() error");
+		return (1);
+	}
+	return (0);
 }
 

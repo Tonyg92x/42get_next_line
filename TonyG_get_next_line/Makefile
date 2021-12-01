@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: aguay <aguayaguay@student.42queb>          +#+  +:+       +#+         #
+#    By: aguay <aguay@student.42.fr>                +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/11/24 09:31:25 by aguay             #+#    #+#              #
-#    Updated: 2021/11/24 09:35:27 by aguay            ###   ########.fr        #
+#    Updated: 2021/12/01 13:38:13 by aguay            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ NAME 			= get_next_line
 
 ## ----- CHOOSE COMPILER AND FLAGS ----- ##
 CC				= gcc
-CFLAGS			= -Wall -Wextra -Werror -g
+CFLAGS			= -Wall -Wextra -Werror -c
 
 ## ----- PATH TO FOLDERS ----- ##
 SRCS_DIR		= srcs/
@@ -29,9 +29,9 @@ OBJ_DIR			= obj/
 INCLUDE_DIR		= includes/
 
 ## ----- SOURCE FILES ----- ##
-SRCS_FILES		= get_next_line.c get_next_line_utils.c
+SRCS_FILES		= get_next_line.c get_next_line_utils.c main.c
 
-## ----- .C TO .O CONVERT ----- ##
+## ----- .C TO .O CONVERT ----- ##1
 OBJ_FILES		= $(SRCS_FILES:.c=.o)
 
 ## ----- ADDPREFIX TO FILES ----- ##
@@ -43,7 +43,7 @@ VPATH			= $(SRCS_DIR) #$(B_SRCS_DIR)
 #--------------------------------------------------------------#
 
 ## ----- TOOLS AND COLORS ----- ##
-RM				= rm -Rf
+RM				= rm -rf
 NO_PRINT		= --no-print-directory
 RED 			= \033[31m
 GREEN 			= \033[32m
@@ -62,7 +62,7 @@ all: obj $(NAME)
 	@echo "$(GREEN)Compilation Completed Successfully$(NORMAL)"
 
 $(OBJ_DIR)%.o:%.c
-	$(CC) $(CFLAGS) $(INCLUDE_DIR) -o $@ -c $<
+	$(CC) $(CFLAGS) -I $(INCLUDE_DIR) -o $@ -c $<
 
 $(NAME): $(OBJS)
 	$(CC) $(OBJS) -o $(NAME)
@@ -72,14 +72,12 @@ obj:
 
 ## ----- CLEAN COMMANDS ----- ##
 clean:
-	$(RM) $(OBJS) $(B_OBJS)
-	@make -C $(LIBFT_DIR) clean
+	$(RM) obj
+	$(RM) $(OBJS)
 
 fclean: clean
 	@rm -f $(NAME)
-#*	$(RM) $(B_NAME) $(OBJ_DIR)
-	@make -C $(LIBFT_DIR) fclean
 
-re: fclean all bonus
+re: fclean all
 
 .PHONY: all clean fclean re
