@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 09:25:57 by aguay             #+#    #+#             */
-/*   Updated: 2021/12/01 14:18:58 by aguay            ###   ########.fr       */
+/*   Updated: 2021/12/02 12:51:10 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,17 +24,29 @@ size_t	ft_strlen(const char *str)
 	return (count);
 }
 
-bool	ft_nl(char *s)
+bool	ft_strchr(const char *s, int c)
 {
-	int count;
+	int	len;
 
-	count = 0;
-	while (s[count])
+	len = ft_strlen(s);
+	if (c == '\0')
 	{
-		if (s[count++] == '\n')
-			return (false);
+		while (len > 0)
+		{
+			s++;
+			len--;
+		}
+		return ((char *)s);
 	}
-	return (true);
+	while (*s)
+	{
+		if (*s == (char)c)
+		{
+			return (true);
+		}
+		s++;
+	}
+	return (false);
 }
 
 void	ft_putstr_getnext_fd(char *s, int fd)
@@ -50,22 +62,37 @@ void	ft_putstr_getnext_fd(char *s, int fd)
 		write(fd, "\n", 1);
 }
 
-void	ft_buffersaver(char *line, char *buffer)
+char	*line_fix(char *line)
 {
-	int		len;
-	int		count;
-	int		buffer_count;
-
-	buffer_count = 0;
-	count = 0;
-	len = ft_strlen(line) - 1;
-	while (line[count] != '\0' && count != len)
-		count ++;
-	if (count == len)
+	int	i;
+	
+	while(line[0] != '\n')
 	{
-		buffer[0] = '\0';
-		return;
+		i = 0;
+		while (line[i])
+		{
+			line[i] = line[i + 1];
+			i++;
+		}
 	}
-	while (line[count])
-		buffer[buffer_count++] = line[count++];
+	i = 0;
+	while (line[i])
+	{
+		line[i] = line[i + 1];
+		i++;
+	}
+	return (line);
+}
+
+char	*buff_set(char *line, char *buffer)
+{
+	int		i;
+	
+	i = 0;
+	while (line[i])
+	{
+		buffer[i] = line[i];
+		i++;
+	}
+	return (buffer);
 }
