@@ -21,6 +21,15 @@
 #include <sys/types.h>
 #include <fcntl.h>
 
-char    *get_next_line(int fd);
-char    *ft_print(char  *buffer);
+void	*ft_memset(void *b, int c, size_t len);
+void	ft_putstr_getnext_fd(char *s, int fd);
+bool	ft_strchr(const char *s, int c);
+size_t	ft_strlen(const char *str);
+char	*buff_set(char *line, char *buffer);
+char	*line_fix(char *line);
+char	*ft_strdup(const char *src);
+char	*ft_strjoin(char const *s1, char const *s2);
+void	*ft_calloc(size_t count, size_t size);
+char	*get_next_line(int fd);
+char	*ft_print_buf(char *buffer);
 #endif

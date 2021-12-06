@@ -1,14 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   get_next_line_utils.c                              :+:      :+:    :+:   */
+/*   get_next_line.h                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/11/24 09:25:57 by aguay             #+#    #+#             */
-/*   Updated: 2021/12/02 12:51:10 by aguay            ###   ########.fr       */
+/*   Created: 2021/11/24 09:19:19 by aguay             #+#    #+#             */
+/*   Updated: 2021/12/02 14:20:15 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#ifndef GET_NET_LINE_H
+# define GET_NET_LINE_H
 
+#include <stdio.h>
+#include <stdbool.h>
+#include <unistd.h>
+#include <stdlib.h>
+#include <sys/stat.h>
+#include <sys/types.h>
+#include <fcntl.h>
+
+char    *get_next_line(int fd);
+#endif

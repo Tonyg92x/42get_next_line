@@ -23,14 +23,11 @@ int	main(void)
 		printf("open() error");
 		return (1);
 	}
-	line = get_next_line(fd);
+	line = "salut";
 	while (line != NULL)
 	{
 		line = get_next_line(fd);
-		if (line != NULL)
-			free(line);
 	}
-	free(line);
 	if (close(fd) == -1)
 	{
 		printf("close() error");
