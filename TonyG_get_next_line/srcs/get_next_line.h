@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 09:19:19 by aguay             #+#    #+#             */
-/*   Updated: 2021/12/02 14:20:15 by aguay            ###   ########.fr       */
+/*   Updated: 2021/12/07 10:52:04 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,5 @@
 #include <fcntl.h>
 
 char    *get_next_line(int fd);
-char    *ft_print(char  *buffer);
+char    *ft_print(char  *buffer, int *len, int fd, char *retour,int *count_ret);
 #endif

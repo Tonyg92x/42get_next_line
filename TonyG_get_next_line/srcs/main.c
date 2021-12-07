@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 09:26:26 by aguay             #+#    #+#             */
-/*   Updated: 2021/12/02 15:02:57 by aguay            ###   ########.fr       */
+/*   Updated: 2021/12/07 11:20:43 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,25 +14,21 @@
 
 int	main(void)
 {
-	int		fd;
-	char	*line;
+    ssize_t    fd;
+    char    *test;
 
-	fd = open("test.txt", O_RDONLY);
-	if (fd == -1)
-	{
-		printf("open() error");
-		return (1);
-	}
-	line = "salut";
-	while (line != NULL)
-	{
-		line = get_next_line(fd);
-	}
-	if (close(fd) == -1)
-	{
-		printf("close() error");
-		return (1);
-	}
-	return (0);
+        fd = open("test.txt", O_RDONLY);
+	puts("-------------main----------");
+    do
+    {
+        test = get_next_line(fd);
+        printf("|%s|\n", test);
+        if (test)
+            free(test);
+    } while (test != NULL);
+    if (test)
+        free(test);
+    close(fd);
+    return (0);
 }
 
