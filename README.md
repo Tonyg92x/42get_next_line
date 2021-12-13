@@ -58,6 +58,7 @@
 
 <p align="center">
   This is a project to read on a file the next line. You have to compile .c files with gcc and the tag -D BUFFER_SIZE=x where x is the buffer_size. The buffer size is the length of every read done. If it read the entire file, the program will read only one time and the rest of the file is saved in a static variable.
+  
  <!-- INSTALLATION -->
 ## Installation
 ```markdown
