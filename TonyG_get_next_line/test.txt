@@ -1,5 +1,0 @@
-This is line 1
-This is line 2 : There is a \n at the end.
-This is line 3 : There is word after '\n' \n hidden word
-This is line 4 : Therse is a word after '\0' \0 hidden word
-This is line 5 : SMILE YOU HAVE REACHED IT !
