@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 09:25:02 by aguay             #+#    #+#             */
-/*   Updated: 2021/12/09 14:41:48 by aguay            ###   ########.fr       */
+/*   Updated: 2021/12/13 09:18:58 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ char	*get_next_line(int fd)
 	char			*ptr;
 	char			*retour;
 
-	if (fd < 0)
+	if (fd < 0 || fd > OPEN_MAX)
 		return (NULL);
 	retour = malloc(16711568);
 	ptr = buffer[fd];
