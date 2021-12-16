@@ -6,7 +6,7 @@
 /*   By: aguay <aguay@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/24 09:25:02 by aguay             #+#    #+#             */
-/*   Updated: 2021/12/09 14:54:36 by aguay            ###   ########.fr       */
+/*   Updated: 2021/12/16 14:20:21 by aguay            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,14 +30,14 @@ char	*get_next_line(int fd)
 	retour = malloc(16711568);
 	ptr = buffer[fd];
 	len = 1;
-	if (buffer[fd][0] != '\0')
-		ptr = ft_get(buffer[fd], &len, fd, retour);
+	if (ptr[0] != '\0')
+		ptr = ft_get(ptr, &len, fd, retour);
 	else
 	{
-		len = read(fd, buffer[fd], BUFFER_SIZE);
+		len = read(fd, ptr, BUFFER_SIZE);
 		if (len == -1 || len == 0)
 			return (ft_clean(retour));
-		ptr = ft_get(buffer[fd], &len, fd, retour);
+		ptr = ft_get(ptr, &len, fd, retour);
 	}
 	if (len == 0 && retour[0] == '\0')
 		return (ft_clean(retour));
