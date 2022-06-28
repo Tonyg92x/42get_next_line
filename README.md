@@ -59,6 +59,8 @@
 <p align="center">
   This is a project to read on a file the next line. You have to compile .c files with gcc and the tag -D BUFFER_SIZE=x where x is the buffer_size. The buffer size is the length of every read done. If it read the entire file, the program will read only one time and the rest of the file is saved in a static variable. The project is made to have a small amount of lines to be abble to write it again with ease on exam rank 02 of 42 cursus.
   
+  EDIT : The malloc(tofuckingbig) is not a good practice. It is a version for the exam that dosent look at that. A cleaner version would be to realloc the right size when you need more space un malloc (dynamic allocation) or passing the retoru variable in ft_strdup of my libft to trim it down to the actual size it needs.
+  
  <!-- INSTALLATION -->
 ## Installation
 ```markdown
